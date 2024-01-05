@@ -24,16 +24,17 @@ font pango:monospace 8
 
 exec --no-startup-id dex --autostart --environment i3
 
-exec_always --no-startup-id picom 
+exec_always /usr/local/bin/picom -b
 # exec_always --no-startup-id killall polybar; polybar example -c ~/.config/polybar/config
 exec --no-startup-id unclutter
 
 exec --no-startup-id xrandr --output Virtual-1 --mode 1920x1080
 
+exec_always killall polybar; /home/unity/.config/polybar/launch.sh --blocks
 
-exec --no-startup-id feh --bg-fill ~/Pics/wall.jpg
+exec --no-startup-id feh --bg-fill ~/walls/pixelmoon.png
 
-exec --no-startup-id autotiling
+exec_always --no-startup-id autotiling
 
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
@@ -68,7 +69,7 @@ bindsym $mod+Return exec kitty
 bindsym $mod+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec --no-startup-id rofi -show drun
+bindsym $mod+d exec --no-startup-id /home/unity/.config/polybar/blocks/scripts/launcher.sh 
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
 # There also is i3-dmenu-desktop which only displays applications shipping a
